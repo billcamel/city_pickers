@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:city_pickers/modal/base_citys.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../modal/point.dart';
@@ -441,30 +442,48 @@ class _BaseView extends State<BaseView> {
           children: <Widget>[
             new Row(
               children: <Widget>[
-                TextButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: widget.cancelWidget ??
-                      new Text(
-                        '取消',
-                        style: new TextStyle(
-                          color: Theme.of(context).primaryColor,
-                        ),
+                Container(
+                    margin: EdgeInsets.only(left: 10),
+                    child: CupertinoButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      pressedOpacity: 0.3,
+                      padding:
+                          const EdgeInsetsDirectional.only(start: 16, top: 0),
+                      child: widget.cancelWidget ??
+                          new Text(
+                            '取消',
+                            style: new TextStyle(
+                              color: Theme.of(context).primaryColor,
+                            ),
+                          ),
+                    )),
+                Container(
+                    margin: EdgeInsets.only(top: 13),
+                    child: new Text(
+                      '选择真太阳时地区',
+                      style: new TextStyle(
+                        color: Colors.grey,
                       ),
-                ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.pop(context, _buildResult());
-                  },
-                  child: widget.confirmWidget ??
-                      new Text(
-                        '确定',
-                        style: new TextStyle(
-                          color: Theme.of(context).primaryColor,
-                        ),
-                      ),
-                ),
+                    )),
+                Container(
+                    margin: EdgeInsets.only(right: 10),
+                    child: CupertinoButton(
+                      onPressed: () {
+                        Navigator.pop(context, _buildResult());
+                      },
+                      pressedOpacity: 0.3,
+                      padding:
+                          const EdgeInsetsDirectional.only(end: 16, top: 0),
+                      child: widget.confirmWidget ??
+                          new Text(
+                            '确定',
+                            style: new TextStyle(
+                              color: Theme.of(context).primaryColor,
+                            ),
+                          ),
+                    )),
               ],
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,

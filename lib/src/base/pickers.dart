@@ -16,13 +16,13 @@ class ScrollPicker extends StatelessWidget {
   // Constructor. {} here denote that they are optional values i.e you can use as: new MyCard()
   ScrollPicker(
       {this.key,
-        this.controller,
-        this.isShow = false,
-        required this.changed,
-        this.itemList,
-        this.itemExtent,
-        this.itemBuilder,
-        this.value});
+      this.controller,
+      this.isShow = false,
+      required this.changed,
+      this.itemList,
+      this.itemExtent,
+      this.itemBuilder,
+      this.value});
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +78,9 @@ class ScrollPicker extends StatelessWidget {
                     '$text',
                     overflow: TextOverflow.ellipsis, // 字数过多时显示省略号
                     maxLines: 1,
-                    style: TextStyle(fontSize: fontSize),
+                    style: TextStyle(
+                        fontSize: fontSize,
+                        color: Theme.of(context).primaryColor),
                   ),
                 );
               },
